@@ -67,7 +67,7 @@
           "name": "html",
           "dataType": "string",
           "isCollection": false,
-          "description": "HTML string to append.",
+          "description": "The HTML string to append. See [supported HTML](../../docs/onenote/onenote-add-ins-page-content.md#supported-html) for the OneNote add-ins JavaScript API.",
           "isRequired": true,
           "enumNameJs": null,
           "notes": null
@@ -88,12 +88,23 @@
           "name": "html",
           "dataType": "string",
           "isCollection": false,
-          "description": "HTML string to prepend.",
+          "description": "The HTML string to prepend. See [supported HTML](../../docs/onenote/onenote-add-ins-page-content.md#supported-html) for the OneNote add-ins JavaScript API.",
           "isRequired": true,
           "enumNameJs": null,
           "notes": null
         }
       ]
+    },
+    {
+      "name": "select",
+      "returnType": "void",
+      "description": "Selects the Outline and bring it to the view.",
+      "syntax": "outlineObject.select();",
+      "signature": "select()",
+      "restfulName": "select",
+      "notes": null,
+      "httpSuccessResponse": null,
+      "parameters": null
     },
     {
       "name": "load",

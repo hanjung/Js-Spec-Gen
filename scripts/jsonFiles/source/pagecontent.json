@@ -109,6 +109,17 @@
       "parameters": null
     },
     {
+      "name": "select",
+      "returnType": "void",
+      "description": "Selects the PageContent object.",
+      "syntax": "pageContentObject.select();",
+      "signature": "select()",
+      "restfulName": "select",
+      "notes": null,
+      "httpSuccessResponse": null,
+      "parameters": null
+    },
+    {
       "name": "load",
       "returnType": "void",
       "description": "Fills the proxy object created in JavaScript layer with property and object values specified in the parameter.",

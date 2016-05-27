@@ -39,6 +39,17 @@
       "isRelationship": false,
       "isKey": null,
       "notes": null
+    },
+    {
+      "name": "clientUrl{",
+      "dataType": "string",
+      "description": "The client url of the notebook. Read only",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "isRelationship": false,
+      "isKey": null,
+      "notes": null
     }
   ],
   "methods": [

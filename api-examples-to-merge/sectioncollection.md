@@ -5,7 +5,7 @@
 OneNote.run(function (context) {
 
     // Get all the sections in the current notebook.
-    var sections = context.application.activeNotebook.getSections(true);
+    var sections = context.application.getActiveNotebook().getSections(true);
 
     // Queue a command to load the sections. 
     // For best performance, request specific properties.
@@ -39,7 +39,7 @@ OneNote.run(function (context) {
 OneNote.run(function (context) {
 
     // Get all the sections in the current notebook.
-    var allSections = context.application.activeNotebook.getSections(true);
+    var allSections = context.application.getActiveNotebook().getSections(true);
 
     // Queue a command to load the sections. 
     // For best performance, request specific properties.

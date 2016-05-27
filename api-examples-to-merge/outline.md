@@ -3,7 +3,7 @@
 OneNote.run(function (context) {
 
     // Gets the active page.
-    var activePage = context.application.activePage;
+    var activePage = context.application.getActivePage();
 
     // Get pageContents of the activePage. 
     var pageContents = activePage.getContents();
@@ -40,7 +40,7 @@ OneNote.run(function (context) {
 OneNote.run(function (context) {
 
     // Gets the active page.
-    var activePage = context.application.activePage;
+    var activePage = context.application.getActivePage();
 
     // Get pageContents of the activePage. 
     var pageContents = activePage.getContents();

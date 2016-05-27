@@ -63,9 +63,9 @@
       "notes": null
     },
     {
-      "name": "absolutePath",
+      "name": "clientUrl",
       "dataType": "string",
-      "description": "The absolute path of the page. Read only",
+      "description": "The client url of the page. Read only",
       "isReadOnly": true,
       "enumNameJs": null,
       "isCollection": false,
@@ -118,7 +118,7 @@
           "name": "html",
           "dataType": "String",
           "isCollection": false,
-          "description": "An HTML string that describes the visual presentation of the Outline.",
+          "description": "An HTML string that describes the visual presentation of the Outline. See [supported HTML](../../docs/onenote/onenote-add-ins-page-content.md#supported-html) for the OneNote add-ins JavaScript API.",
           "isRequired": true,
           "enumNameJs": null,
           "notes": null

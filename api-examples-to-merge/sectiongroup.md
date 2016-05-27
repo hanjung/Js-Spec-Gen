@@ -5,7 +5,7 @@
 OneNote.run(function (context) {
         
     // Get the parent section group that contains the current section.
-    var sectionGroup = context.application.activeSection.sectionGroup;
+    var sectionGroup = context.application.getActiveSection().sectionGroup;
             
     // Queue a command to load the section group. 
     // For best performance, request specific properties.           
@@ -33,7 +33,7 @@ OneNote.run(function (context) {
 OneNote.run(function (context) {
         
     // Get the parent section group that contains the current section.
-    var sectionGroup = context.application.activeSection.sectionGroup;
+    var sectionGroup = context.application.getActiveSection().sectionGroup;
             
     // Queue a command to load the section group with the specified properties.           
     sectionGroup.load("name,notebook/name"); 
@@ -60,7 +60,7 @@ OneNote.run(function (context) {
 OneNote.run(function (context) {
 
     // Get the section groups that are direct children of the current notebook.
-    var sectionGroups = context.application.activeNotebook.getSectionGroups();
+    var sectionGroups = context.application.getActiveNotebook().getSectionGroups();
     
     // Queue a command to load the section groups.
     // For best performance, request specific properties.
@@ -92,7 +92,7 @@ OneNote.run(function (context) {
 OneNote.run(function (context) {
 
     // Get the section groups that are direct children of the current notebook.
-    var sectionGroups = context.application.activeNotebook.getSectionGroups();
+    var sectionGroups = context.application.getActiveNotebook().getSectionGroups();
 
     // Queue a command to load the section groups.
     // For best performance, request specific properties.

@@ -54,11 +54,33 @@
     {
       "name": "sectionGroup",
       "dataType": "SectionGroup",
+      "description": "Gets the section group that contains the section. Throws ItemNotFound if the section is a direct child of the notebook.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "isRelationship": true,
+      "isKey": null,
+      "notes": null
+    },
+    {
+      "name": "sectionGroupOrNull",
+      "dataType": "SectionGroup",
       "description": "Gets the section group that contains the section. Returns null if the section is a direct child of the notebook.",
       "isReadOnly": true,
       "enumNameJs": null,
       "isCollection": false,
       "isRelationship": true,
+      "isKey": null,
+      "notes": null
+    },
+    {
+      "name": "clientUrl{",
+      "dataType": "string",
+      "description": "The client url of the section. Read only",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "isRelationship": false,
       "isKey": null,
       "notes": null
     }

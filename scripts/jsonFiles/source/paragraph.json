@@ -87,6 +87,17 @@
       "parameters": null
     },
     {
+      "name": "select",
+      "returnType": "void",
+      "description": "Selects the paragraph",
+      "syntax": "paragraphObject.select();",
+      "signature": "select()",
+      "restfulName": "select",
+      "notes": null,
+      "httpSuccessResponse": null,
+      "parameters": null
+    },
+    {
       "name": "insertAsSibling",
       "returnType": "void",
       "description": "Inserts the specified HTML content",
@@ -100,7 +111,7 @@
           "name": "html",
           "dataType": "string",
           "isCollection": false,
-          "description": "An HTML string that describes the visual presentation of the content.",
+          "description": "An HTML string that describes the visual presentation of the content. See [supported HTML](../../docs/onenote/onenote-add-ins-page-content.md#supported-html) for the OneNote add-ins JavaScript API.",
           "isRequired": true,
           "enumNameJs": null,
           "notes": null

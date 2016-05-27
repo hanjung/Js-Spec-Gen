@@ -17,64 +17,96 @@
     "title": "Office JavaScript Add-in API",
     "description": "Office JavaScript Add-in API"
   },
-  "properties": [
-    {
-      "name": "notebooks",
-      "dataType": "NotebookCollection",
-      "description": "Gets the collection of notebooks that are open in the OneNote application instance. In OneNote Online, only one notebook at a time is open in the application instance.",
-      "isReadOnly": true,
-      "enumNameJs": null,
-      "isCollection": true,
-      "isRelationship": true,
-      "isKey": null,
-      "notes": null
-    },
-    {
-      "name": "activeNotebook",
-      "dataType": "Notebook",
-      "description": "Gets the active notebook.",
-      "isReadOnly": true,
-      "enumNameJs": null,
-      "isCollection": false,
-      "isRelationship": true,
-      "isKey": null,
-      "notes": null
-    },
-    {
-      "name": "activeSection",
-      "dataType": "Section",
-      "description": "Gets the active section.",
-      "isReadOnly": true,
-      "enumNameJs": null,
-      "isCollection": false,
-      "isRelationship": true,
-      "isKey": null,
-      "notes": null
-    },
-    {
-      "name": "activePage",
-      "dataType": "Page",
-      "description": "Gets the active page.",
-      "isReadOnly": true,
-      "enumNameJs": null,
-      "isCollection": false,
-      "isRelationship": true,
-      "isKey": null,
-      "notes": null
-    },
-    {
-      "name": "activeOutline",
-      "dataType": "Outline",
-      "description": "Gets the active outline.",
-      "isReadOnly": true,
-      "enumNameJs": null,
-      "isCollection": false,
-      "isRelationship": true,
-      "isKey": null,
-      "notes": null
-    }
-  ],
+  "properties": null,
   "methods": [
+    {
+      "name": "getActiveNotebook",
+      "returnType": "Notebook",
+      "description": "Gets the active notebook if one exists. If no notebook is active, throws ItemNotFound.",
+      "syntax": "applicationObject.getActiveNotebook();",
+      "signature": "getActiveNotebook()",
+      "restfulName": "ActiveNotebook",
+      "notes": null,
+      "httpSuccessResponse": null,
+      "parameters": null
+    },
+    {
+      "name": "getActiveNotebookOrNull",
+      "returnType": "Notebook",
+      "description": "Gets the active notebook if one exists. If no notebook is active, returns null.",
+      "syntax": "applicationObject.getActiveNotebookOrNull();",
+      "signature": "getActiveNotebookOrNull()",
+      "restfulName": "ActiveNotebookOrNull",
+      "notes": null,
+      "httpSuccessResponse": null,
+      "parameters": null
+    },
+    {
+      "name": "getActiveSection",
+      "returnType": "Section",
+      "description": "Gets the active section if one exists. If no section is active, throws ItemNotFound.",
+      "syntax": "applicationObject.getActiveSection();",
+      "signature": "getActiveSection()",
+      "restfulName": "ActiveSection",
+      "notes": null,
+      "httpSuccessResponse": null,
+      "parameters": null
+    },
+    {
+      "name": "getActiveSectionOrNull",
+      "returnType": "Section",
+      "description": "Gets the active section if one exists. If no section is active, returns null.",
+      "syntax": "applicationObject.getActiveSectionOrNull();",
+      "signature": "getActiveSectionOrNull()",
+      "restfulName": "ActiveSectionOrNull",
+      "notes": null,
+      "httpSuccessResponse": null,
+      "parameters": null
+    },
+    {
+      "name": "getActivePage",
+      "returnType": "Page",
+      "description": "Gets the active page if one exists. If no page is active, throws ItemNotFound.",
+      "syntax": "applicationObject.getActivePage();",
+      "signature": "getActivePage()",
+      "restfulName": "ActivePage",
+      "notes": null,
+      "httpSuccessResponse": null,
+      "parameters": null
+    },
+    {
+      "name": "getActivePageOrNull",
+      "returnType": "Page",
+      "description": "Gets the active page if one exists. If no page is active, returns null.",
+      "syntax": "applicationObject.getActivePageOrNull();",
+      "signature": "getActivePageOrNull()",
+      "restfulName": "ActivePageOrNull",
+      "notes": null,
+      "httpSuccessResponse": null,
+      "parameters": null
+    },
+    {
+      "name": "getActiveOutline",
+      "returnType": "Outline",
+      "description": "Gets the active outline if one exists, If no outline is active, throws ItemNotFound.",
+      "syntax": "applicationObject.getActiveOutline();",
+      "signature": "getActiveOutline()",
+      "restfulName": "ActiveOutline",
+      "notes": null,
+      "httpSuccessResponse": null,
+      "parameters": null
+    },
+    {
+      "name": "getActiveOutlineOrNull",
+      "returnType": "Outline",
+      "description": "Gets the active outline if one exists, otherwise returns null.",
+      "syntax": "applicationObject.getActiveOutlineOrNull();",
+      "signature": "getActiveOutlineOrNull()",
+      "restfulName": "ActiveOutlineOrNull",
+      "notes": null,
+      "httpSuccessResponse": null,
+      "parameters": null
+    },
     {
       "name": "navigateToPage",
       "returnType": "void",
@@ -98,8 +130,8 @@
     },
     {
       "name": "navigateToPageWithClientUrl",
-      "returnType": "void",
-      "description": "Opens the specified page in the application instance.",
+      "returnType": "Page",
+      "description": "Gets the specified page, and opens it in the application instance.",
       "syntax": "applicationObject.navigateToPageWithClientUrl(url);",
       "signature": "navigateToPageWithClientUrl(url: string)",
       "restfulName": "navigateToPageWithClientUrl",
@@ -110,50 +142,9 @@
           "name": "url",
           "dataType": "string",
           "isCollection": false,
-          "description": "The client url of the page to open",
+          "description": "The client url of the page to open.",
           "isRequired": true,
           "enumNameJs": null,
-          "notes": null
-        }
-      ]
-    },
-    {
-      "name": "navigateToPageWithPagePath",
-      "returnType": "void",
-      "description": "Opens the specified page in the application instance.",
-      "syntax": "applicationObject.navigateToPageWithPagePath(pagePath);",
-      "signature": "navigateToPageWithPagePath(pagePath: string)",
-      "restfulName": "navigateToPageWithPagePath",
-      "notes": null,
-      "httpSuccessResponse": null,
-      "parameters": [
-        {
-          "name": "pagePath",
-          "dataType": "string",
-          "isCollection": false,
-          "description": "The path of the page to open",
-          "isRequired": true,
-          "enumNameJs": null,
-          "notes": null
-        }
-      ]
-    },
-    {
-      "name": "load",
-      "returnType": "void",
-      "description": "Fills the proxy object created in JavaScript layer with property and object values specified in the parameter.",
-      "syntax": "object.load(param);",
-      "signature": "load(param: object)",
-      "restfulName": null,
-      "notes": null,
-      "parameters": [
-        {
-          "name": "param",
-          "dataType": "object",
-          "description": "Accepts parameter and relationship names as delimited string or an array. Or, provide [loadOption](loadoption.md) object.",
-          "isRequired": false,
-          "enumNameJs": null,
-          "possibleValues": null,
           "notes": null
         }
       ]
