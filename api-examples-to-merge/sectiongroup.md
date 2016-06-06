@@ -5,7 +5,7 @@
 OneNote.run(function (context) {
         
     // Get the parent section group that contains the current section.
-    var sectionGroup = context.application.getActiveSection().sectionGroup;
+    var sectionGroup = context.application.getActiveSection().parentSectionGroup;
             
     // Queue a command to load the section group. 
     // For best performance, request specific properties.           
@@ -33,7 +33,7 @@ OneNote.run(function (context) {
 OneNote.run(function (context) {
         
     // Get the parent section group that contains the current section.
-    var sectionGroup = context.application.getActiveSection().sectionGroup;
+    var sectionGroup = context.application.getActiveSection().parentSectionGroup;
             
     // Queue a command to load the section group with the specified properties.           
     sectionGroup.load("name,notebook/name"); 
@@ -55,51 +55,19 @@ OneNote.run(function (context) {
     });
 ```
 
-### addSection(title: String)
+**sectionGroups**
 ```js
 OneNote.run(function (context) {
 
     // Get the section groups that are direct children of the current notebook.
-    var sectionGroups = context.application.getActiveNotebook().getSectionGroups();
-    
-    // Queue a command to load the section groups.
-    // For best performance, request specific properties.
-    sectionGroups.load("id");
-
-    // Run the queued commands, and return a promise to indicate task completion.
-    return context.sync()
-        .then(function() {
-            
-            // Add a section to each section group.
-            $.each(sectionGroups.items, function(index, sectionGroup) {
-                sectionGroup.addSection("Agenda");
-            });
-            
-            // Run the queued commands.
-            return context.sync();
-        });
-    })
-    .catch(function(error) {
-        console.log("Error: " + error);
-        if (error instanceof OfficeExtension.Error) {
-            console.log("Debug info: " + JSON.stringify(error.debugInfo));
-        }
-    });
-```
-
-### getSectionGroups()
-```js
-OneNote.run(function (context) {
-
-    // Get the section groups that are direct children of the current notebook.
-    var sectionGroups = context.application.getActiveNotebook().getSectionGroups();
+    var sectionGroups = context.application.getActiveNotebook().sectionGroups;
 
     // Queue a command to load the section groups.
     // For best performance, request specific properties.
     sectionGroups.load("name");
     
     // Get the child section groups of the first section group in the notebook.
-    var nestedSectionGroups = sectionGroups._GetItem(0).getSectionGroups();
+    var nestedSectionGroups = sectionGroups._GetItem(0).sectionGroups;
     
     // Queue a command to load the ID and name properties of the child section groups.
     nestedSectionGroups.load("id,name");
@@ -123,12 +91,12 @@ OneNote.run(function (context) {
     });
 ```
 
-### getSections(recursive: bool)
+**sections**
 ```js
 OneNote.run(function (context) {
 
     // Get the sections that are siblings of the current section.
-    var sections = context.application.activeSection.sectionGroup.getSections();
+    var sections = context.application.getActiveSection().parentSectionGroup.sections;
 
     // Queue a command to load the section groups.
     // For best performance, request specific properties.
@@ -150,5 +118,37 @@ OneNote.run(function (context) {
                 console.log("Debug info: " + JSON.stringify(error.debugInfo));
             }
         });
+    });
+```
+
+### addSection(title: String)
+```js
+OneNote.run(function (context) {
+
+    // Get the section groups that are direct children of the current notebook.
+    var sectionGroups = context.application.getActiveNotebook().sectionGroups;
+    
+    // Queue a command to load the section groups.
+    // For best performance, request specific properties.
+    sectionGroups.load("id");
+
+    // Run the queued commands, and return a promise to indicate task completion.
+    return context.sync()
+        .then(function() {
+            
+            // Add a section to each section group.
+            $.each(sectionGroups.items, function(index, sectionGroup) {
+                sectionGroup.addSection("Agenda");
+            });
+            
+            // Run the queued commands.
+            return context.sync();
+        });
+    })
+    .catch(function(error) {
+        console.log("Error: " + error);
+        if (error instanceof OfficeExtension.Error) {
+            console.log("Debug info: " + JSON.stringify(error.debugInfo));
+        }
     });
 ```

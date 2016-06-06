@@ -5,7 +5,7 @@
 OneNote.run(function (context) {
 
     // Get the section groups that are direct children of the current notebook.
-    var sectionGroups = context.application.getActiveNotebook().getSectionGroups();
+    var sectionGroups = context.application.getActiveNotebook().sectionGroups;
 
     // Queue a command to load the section groups. 
     // For best performance, request specific properties.
@@ -35,7 +35,7 @@ OneNote.run(function (context) {
 OneNote.run(function (context) {
 
     // Get the section groups that are direct children of the current notebook.
-    var sectionGroups = context.application.getActiveNotebook().getSectionGroups();
+    var sectionGroups = context.application.getActiveNotebook().sectionGroups;
 
     // Queue a command to load the section groups. 
     // For best performance, request specific properties.

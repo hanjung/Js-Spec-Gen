@@ -1,0 +1,313 @@
+{
+  "name": "Table",
+  "description": "Represents a table in a OneNote page.",
+  "isCollection": false,
+  "collectionOf": null,
+  "restPath": null,
+  "info": {
+    "version": "1.1",
+    "addedIn": "1.1",
+    "addinTypes": [
+      "OneNote"
+    ],
+    "nameSpace": "OneNote",
+    "addinHosts": [
+      "Task pane"
+    ],
+    "title": "Office JavaScript Add-in API",
+    "description": "Office JavaScript Add-in API"
+  },
+  "properties": [
+    {
+      "name": "id",
+      "dataType": "string",
+      "description": "Gets the ID of the table.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "isRelationship": false,
+      "isKey": null,
+      "notes": null
+    },
+    {
+      "name": "paragraph",
+      "dataType": "Paragraph",
+      "description": "Gets the Paragraph object that contains the Table object.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "isRelationship": true,
+      "isKey": null,
+      "notes": null
+    },
+    {
+      "name": "rows",
+      "dataType": "TableRowCollection",
+      "description": "Gets all of the table rows.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": true,
+      "isRelationship": true,
+      "isKey": null,
+      "notes": null
+    },
+    {
+      "name": "rowCount",
+      "dataType": "int",
+      "description": "Gets the number of rows in the table.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "isRelationship": false,
+      "isKey": null,
+      "notes": null
+    },
+    {
+      "name": "columnCount",
+      "dataType": "int",
+      "description": "Gets the number of columns in the table.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "isRelationship": false,
+      "isKey": null,
+      "notes": null
+    }
+  ],
+  "methods": [
+    {
+      "name": "insertRow",
+      "returnType": "TableRow",
+      "description": "Inserts a row at the given index in the table. Values, if specified, are set in the new row. Otherwise the row is empty.",
+      "syntax": "tableObject.insertRow(index, values);",
+      "signature": "insertRow(index: number, values: string[])",
+      "restfulName": "insertRow",
+      "notes": null,
+      "httpSuccessResponse": null,
+      "parameters": [
+        {
+          "name": "index",
+          "dataType": "number",
+          "isCollection": false,
+          "description": "Index where the row will be inserted in the table.",
+          "isRequired": true,
+          "enumNameJs": null,
+          "notes": null
+        },
+        {
+          "name": "values",
+          "dataType": "string[]",
+          "isCollection": true,
+          "description": "Optional. Strings to insert in the new row, specified as an array. Must not have more values than columns in the table.",
+          "isRequired": false,
+          "enumNameJs": null,
+          "notes": null
+        }
+      ]
+    },
+    {
+      "name": "insertColumn",
+      "returnType": "void",
+      "description": "Inserts a column at the given index in the table. Values, if specified, are set in the new column. Otherwise the column is empty.",
+      "syntax": "tableObject.insertColumn(index, values);",
+      "signature": "insertColumn(index: number, values: string[])",
+      "restfulName": "insertColumn",
+      "notes": null,
+      "httpSuccessResponse": null,
+      "parameters": [
+        {
+          "name": "index",
+          "dataType": "number",
+          "isCollection": false,
+          "description": "Index where the column will be inserted in the table.",
+          "isRequired": true,
+          "enumNameJs": null,
+          "notes": null
+        },
+        {
+          "name": "values",
+          "dataType": "string[]",
+          "isCollection": true,
+          "description": "Optional. Strings to insert in the new column, specified as an array. Must not have more values than rows in the table.",
+          "isRequired": false,
+          "enumNameJs": null,
+          "notes": null
+        }
+      ]
+    },
+    {
+      "name": "appendRow",
+      "returnType": "TableRow",
+      "description": "Adds a row to the end of the table. Values, if specified, are set in the new row. Otherwise the row is empty.",
+      "syntax": "tableObject.appendRow(values);",
+      "signature": "appendRow(values: string[])",
+      "restfulName": "appendRow",
+      "notes": null,
+      "httpSuccessResponse": null,
+      "parameters": [
+        {
+          "name": "values",
+          "dataType": "string[]",
+          "isCollection": true,
+          "description": "Optional. Strings to insert in the new row, specified as an array. Must not have more values than columns in the table.",
+          "isRequired": false,
+          "enumNameJs": null,
+          "notes": null
+        }
+      ]
+    },
+    {
+      "name": "appendColumn",
+      "returnType": "void",
+      "description": "Adds a column to the end of the table. Values, if specified, are set in the new column. Otherwise the column is empty.",
+      "syntax": "tableObject.appendColumn(values);",
+      "signature": "appendColumn(values: string[])",
+      "restfulName": "appendColumn",
+      "notes": null,
+      "httpSuccessResponse": null,
+      "parameters": [
+        {
+          "name": "values",
+          "dataType": "string[]",
+          "isCollection": true,
+          "description": "Optional. Strings to insert in the new column, specified as an array. Must not have more values than rows in the table.",
+          "isRequired": false,
+          "enumNameJs": null,
+          "notes": null
+        }
+      ]
+    },
+    {
+      "name": "getCell",
+      "returnType": "TableCell",
+      "description": "Gets the table cell at a specified row and column.",
+      "syntax": "tableObject.getCell(rowIndex, cellIndex);",
+      "signature": "getCell(rowIndex: number, cellIndex: number)",
+      "restfulName": "Cell",
+      "notes": null,
+      "httpSuccessResponse": null,
+      "parameters": [
+        {
+          "name": "rowIndex",
+          "dataType": "number",
+          "isCollection": false,
+          "description": "The index of the row.",
+          "isRequired": true,
+          "enumNameJs": null,
+          "notes": null
+        },
+        {
+          "name": "cellIndex",
+          "dataType": "number",
+          "isCollection": false,
+          "description": "The index of the cell in the row.",
+          "isRequired": true,
+          "enumNameJs": null,
+          "notes": null
+        }
+      ]
+    },
+    {
+      "name": "deleteRows",
+      "returnType": "void",
+      "description": "Deletes a contiguous run of rows.",
+      "syntax": "tableObject.deleteRows(rowIndex, rowCount);",
+      "signature": "deleteRows(rowIndex: number, rowCount: number)",
+      "restfulName": "deleteRows",
+      "notes": null,
+      "httpSuccessResponse": null,
+      "parameters": [
+        {
+          "name": "rowIndex",
+          "dataType": "number",
+          "isCollection": false,
+          "description": "The first row to delete.",
+          "isRequired": true,
+          "enumNameJs": null,
+          "notes": null
+        },
+        {
+          "name": "rowCount",
+          "dataType": "number",
+          "isCollection": false,
+          "description": "Optional. The number of rows to delete. Default 1.",
+          "isRequired": false,
+          "enumNameJs": null,
+          "notes": null
+        }
+      ]
+    },
+    {
+      "name": "deleteColumns",
+      "returnType": "void",
+      "description": "Deletes a contiguous run of columns.",
+      "syntax": "tableObject.deleteColumns(columnIndex, columnCount);",
+      "signature": "deleteColumns(columnIndex: number, columnCount: number)",
+      "restfulName": "deleteColumns",
+      "notes": null,
+      "httpSuccessResponse": null,
+      "parameters": [
+        {
+          "name": "columnIndex",
+          "dataType": "number",
+          "isCollection": false,
+          "description": "The first column to delete.",
+          "isRequired": true,
+          "enumNameJs": null,
+          "notes": null
+        },
+        {
+          "name": "columnCount",
+          "dataType": "number",
+          "isCollection": false,
+          "description": "Optional. The number of columns to delete. Default 1.",
+          "isRequired": false,
+          "enumNameJs": null,
+          "notes": null
+        }
+      ]
+    },
+    {
+      "name": "hideBorder",
+      "returnType": "void",
+      "description": "Hides the table's border",
+      "syntax": "tableObject.hideBorder();",
+      "signature": "hideBorder()",
+      "restfulName": "hideBorder",
+      "notes": null,
+      "httpSuccessResponse": null,
+      "parameters": null
+    },
+    {
+      "name": "showBorder",
+      "returnType": "void",
+      "description": "Make's the table's border visible",
+      "syntax": "tableObject.showBorder();",
+      "signature": "showBorder()",
+      "restfulName": "showBorder",
+      "notes": null,
+      "httpSuccessResponse": null,
+      "parameters": null
+    },
+    {
+      "name": "load",
+      "returnType": "void",
+      "description": "Fills the proxy object created in JavaScript layer with property and object values specified in the parameter.",
+      "syntax": "object.load(param);",
+      "signature": "load(param: object)",
+      "restfulName": null,
+      "notes": null,
+      "parameters": [
+        {
+          "name": "param",
+          "dataType": "object",
+          "description": "Accepts parameter and relationship names as delimited string or an array. Or, provide [loadOption](loadoption.md) object.",
+          "isRequired": false,
+          "enumNameJs": null,
+          "possibleValues": null,
+          "notes": null
+        }
+      ]
+    }
+  ]
+}

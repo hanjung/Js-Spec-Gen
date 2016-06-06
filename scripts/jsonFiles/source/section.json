@@ -52,7 +52,7 @@
       "notes": null
     },
     {
-      "name": "sectionGroup",
+      "name": "parentSectionGroup",
       "dataType": "SectionGroup",
       "description": "Gets the section group that contains the section. Throws ItemNotFound if the section is a direct child of the notebook.",
       "isReadOnly": true,
@@ -63,7 +63,7 @@
       "notes": null
     },
     {
-      "name": "sectionGroupOrNull",
+      "name": "parentSectionGroupOrNull",
       "dataType": "SectionGroup",
       "description": "Gets the section group that contains the section. Returns null if the section is a direct child of the notebook.",
       "isReadOnly": true,
@@ -74,7 +74,7 @@
       "notes": null
     },
     {
-      "name": "clientUrl{",
+      "name": "clientUrl",
       "dataType": "string",
       "description": "The client url of the section. Read only",
       "isReadOnly": true,
@@ -83,20 +83,20 @@
       "isRelationship": false,
       "isKey": null,
       "notes": null
+    },
+    {
+      "name": "pages",
+      "dataType": "PageCollection",
+      "description": "The collection of pages in the section. Read only",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": true,
+      "isRelationship": true,
+      "isKey": null,
+      "notes": null
     }
   ],
   "methods": [
-    {
-      "name": "getPages",
-      "returnType": "PageCollection",
-      "description": "Gets the collection of pages in the section.",
-      "syntax": "sectionObject.getPages();",
-      "signature": "getPages()",
-      "restfulName": "Pages",
-      "notes": null,
-      "httpSuccessResponse": null,
-      "parameters": null
-    },
     {
       "name": "addPage",
       "returnType": "Page",

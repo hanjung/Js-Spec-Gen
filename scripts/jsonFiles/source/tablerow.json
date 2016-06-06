@@ -1,6 +1,6 @@
 {
-  "name": "Notebook",
-  "description": "Represents a OneNote notebook. Notebooks contain section groups and sections.",
+  "name": "TableRow",
+  "description": "Represents a row in a table.",
   "isCollection": false,
   "collectionOf": null,
   "restPath": null,
@@ -21,7 +21,7 @@
     {
       "name": "id",
       "dataType": "string",
-      "description": "Gets the ID of the notebook.",
+      "description": "Gets the ID of the row.",
       "isReadOnly": true,
       "enumNameJs": null,
       "isCollection": false,
@@ -30,31 +30,9 @@
       "notes": null
     },
     {
-      "name": "name",
-      "dataType": "string",
-      "description": "Gets the name of the notebook.",
-      "isReadOnly": true,
-      "enumNameJs": null,
-      "isCollection": false,
-      "isRelationship": false,
-      "isKey": null,
-      "notes": null
-    },
-    {
-      "name": "clientUrl",
-      "dataType": "string",
-      "description": "The client url of the notebook. Read only",
-      "isReadOnly": true,
-      "enumNameJs": null,
-      "isCollection": false,
-      "isRelationship": false,
-      "isKey": null,
-      "notes": null
-    },
-    {
-      "name": "sections",
-      "dataType": "SectionCollection",
-      "description": "The the sections of the notebook. Read only",
+      "name": "cells",
+      "dataType": "TableCellCollection",
+      "description": "Gets the cells in the row.",
       "isReadOnly": true,
       "enumNameJs": null,
       "isCollection": true,
@@ -63,38 +41,80 @@
       "notes": null
     },
     {
-      "name": "sectionGroups",
-      "dataType": "SectionGroupCollection",
-      "description": "The section groups in the notebook. Read only",
+      "name": "cellCount",
+      "dataType": "int",
+      "description": "Gets the number of cells in the row.",
       "isReadOnly": true,
       "enumNameJs": null,
-      "isCollection": true,
+      "isCollection": false,
+      "isRelationship": false,
+      "isKey": null,
+      "notes": null
+    },
+    {
+      "name": "parentTable",
+      "dataType": "Table",
+      "description": "Gets the parent table.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
       "isRelationship": true,
+      "isKey": null,
+      "notes": null
+    },
+    {
+      "name": "rowIndex",
+      "dataType": "int",
+      "description": "Gets the index of the row in its parent table.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "isRelationship": false,
       "isKey": null,
       "notes": null
     }
   ],
   "methods": [
     {
-      "name": "addSection",
-      "returnType": "Section",
-      "description": "Adds a new section to the end of the notebook.",
-      "syntax": "notebookObject.addSection(name);",
-      "signature": "addSection(name: String)",
-      "restfulName": "addSection",
+      "name": "insertRowAsSibling",
+      "returnType": "TableRow",
+      "description": "Inserts a row before or after the current row.",
+      "syntax": "tableRowObject.insertRowAsSibling(insertLocation, values);",
+      "signature": "insertRowAsSibling(insertLocation: string, values: string[])",
+      "restfulName": "insertRowAsSibling",
       "notes": null,
       "httpSuccessResponse": null,
       "parameters": [
         {
-          "name": "name",
-          "dataType": "String",
+          "name": "insertLocation",
+          "dataType": "string",
           "isCollection": false,
-          "description": "The name of the new section.",
+          "description": "Where the new rows should be inserted relative to the current row.",
           "isRequired": true,
+          "enumNameJs": "OneNote.InsertLocation",
+          "notes": null
+        },
+        {
+          "name": "values",
+          "dataType": "string[]",
+          "isCollection": true,
+          "description": "Strings to insert in the new row, specified as an array. Must not have more cells than in the current row. Optional.",
+          "isRequired": false,
           "enumNameJs": null,
           "notes": null
         }
       ]
+    },
+    {
+      "name": "delete",
+      "returnType": "void",
+      "description": "Deletes the entire row.",
+      "syntax": "tableRowObject.delete();",
+      "signature": "delete()",
+      "restfulName": "delete",
+      "notes": null,
+      "httpSuccessResponse": null,
+      "parameters": null
     },
     {
       "name": "load",

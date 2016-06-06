@@ -41,7 +41,7 @@
       "notes": null
     },
     {
-      "name": "section",
+      "name": "parentSection",
       "dataType": "Section",
       "description": "Gets the section that contains the page.",
       "isReadOnly": true,
@@ -72,20 +72,20 @@
       "isRelationship": false,
       "isKey": null,
       "notes": null
+    },
+    {
+      "name": "contents",
+      "dataType": "PageContentCollection",
+      "description": "The collection of PageContent objects on the page. Read only",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": true,
+      "isRelationship": true,
+      "isKey": null,
+      "notes": null
     }
   ],
   "methods": [
-    {
-      "name": "getContents",
-      "returnType": "PageContentCollection",
-      "description": "Gets the collection of PageContent objects on the page.",
-      "syntax": "pageObject.getContents();",
-      "signature": "getContents()",
-      "restfulName": "Contents",
-      "notes": null,
-      "httpSuccessResponse": null,
-      "parameters": null
-    },
     {
       "name": "addOutline",
       "returnType": "Outline",

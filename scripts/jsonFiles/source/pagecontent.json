@@ -30,7 +30,7 @@
       "notes": null
     },
     {
-      "name": "page",
+      "name": "parentPage",
       "dataType": "Page",
       "description": "Gets the page that contains the PageContent object.",
       "isReadOnly": true,

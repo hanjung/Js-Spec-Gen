@@ -54,12 +54,12 @@
   ],
   "methods": [
     {
-      "name": "append",
+      "name": "appendHtml",
       "returnType": "void",
       "description": "Adds the specified HTML to the bottom of the Outline.",
-      "syntax": "outlineObject.append(html);",
-      "signature": "append(html: string)",
-      "restfulName": "append",
+      "syntax": "outlineObject.appendHtml(html);",
+      "signature": "appendHtml(html: string)",
+      "restfulName": "appendHtml",
       "notes": null,
       "httpSuccessResponse": null,
       "parameters": [
@@ -68,27 +68,6 @@
           "dataType": "string",
           "isCollection": false,
           "description": "The HTML string to append. See [supported HTML](../../docs/onenote/onenote-add-ins-page-content.md#supported-html) for the OneNote add-ins JavaScript API.",
-          "isRequired": true,
-          "enumNameJs": null,
-          "notes": null
-        }
-      ]
-    },
-    {
-      "name": "prepend",
-      "returnType": "void",
-      "description": "Adds the specified HTML to the top of the Outline.",
-      "syntax": "outlineObject.prepend(html);",
-      "signature": "prepend(html: string)",
-      "restfulName": "prepend",
-      "notes": null,
-      "httpSuccessResponse": null,
-      "parameters": [
-        {
-          "name": "html",
-          "dataType": "string",
-          "isCollection": false,
-          "description": "The HTML string to prepend. See [supported HTML](../../docs/onenote/onenote-add-ins-page-content.md#supported-html) for the OneNote add-ins JavaScript API.",
           "isRequired": true,
           "enumNameJs": null,
           "notes": null
@@ -105,6 +84,105 @@
       "notes": null,
       "httpSuccessResponse": null,
       "parameters": null
+    },
+    {
+      "name": "appendTable",
+      "returnType": "Table",
+      "description": "Adds a table with the specified number of rows and columns to the bottom of the outline.",
+      "syntax": "outlineObject.appendTable(rowCount, columnCount, values);",
+      "signature": "appendTable(rowCount: number, columnCount: number, values: string[][])",
+      "restfulName": "appendTable",
+      "notes": null,
+      "httpSuccessResponse": null,
+      "parameters": [
+        {
+          "name": "rowCount",
+          "dataType": "number",
+          "isCollection": false,
+          "description": "Required. The number of rows in the table.",
+          "isRequired": true,
+          "enumNameJs": null,
+          "notes": null
+        },
+        {
+          "name": "columnCount",
+          "dataType": "number",
+          "isCollection": false,
+          "description": "Required. The number of columns in the table.",
+          "isRequired": true,
+          "enumNameJs": null,
+          "notes": null
+        },
+        {
+          "name": "values",
+          "dataType": "string[][]",
+          "isCollection": true,
+          "description": "Optional 2D array. Cells are filled if the corresponding strings are specified in the array.",
+          "isRequired": false,
+          "enumNameJs": null,
+          "notes": null
+        }
+      ]
+    },
+    {
+      "name": "appendRichText",
+      "returnType": "RichText",
+      "description": "Adds the specified text to the bottom of the Outline.",
+      "syntax": "outlineObject.appendRichText(paragraphText);",
+      "signature": "appendRichText(paragraphText: string)",
+      "restfulName": "appendRichText",
+      "notes": null,
+      "httpSuccessResponse": null,
+      "parameters": [
+        {
+          "name": "paragraphText",
+          "dataType": "string",
+          "isCollection": false,
+          "description": "HTML string to append.",
+          "isRequired": true,
+          "enumNameJs": null,
+          "notes": null
+        }
+      ]
+    },
+    {
+      "name": "appendImage",
+      "returnType": "Image",
+      "description": "Adds the specified image to the bottom of the Outline.",
+      "syntax": "outlineObject.appendImage(base64EncodedImage, width, height);",
+      "signature": "appendImage(base64EncodedImage: string, width: double, height: double)",
+      "restfulName": "appendImage",
+      "notes": null,
+      "httpSuccessResponse": null,
+      "parameters": [
+        {
+          "name": "base64EncodedImage",
+          "dataType": "string",
+          "isCollection": false,
+          "description": "HTML string to append.",
+          "isRequired": true,
+          "enumNameJs": null,
+          "notes": null
+        },
+        {
+          "name": "width",
+          "dataType": "double",
+          "isCollection": false,
+          "description": "Optional. Width in the unit of Points. The default value is null and image width will be respected.",
+          "isRequired": true,
+          "enumNameJs": null,
+          "notes": null
+        },
+        {
+          "name": "height",
+          "dataType": "double",
+          "isCollection": false,
+          "description": "Optional. Height in the unit of Points. The default value is null and image height will be respected.",
+          "isRequired": true,
+          "enumNameJs": null,
+          "notes": null
+        }
+      ]
     },
     {
       "name": "load",

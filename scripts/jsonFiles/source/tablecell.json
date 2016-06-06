@@ -1,6 +1,6 @@
 {
-  "name": "SectionGroup",
-  "description": "Represents a OneNote section group. Section groups can contain sections and other section groups.",
+  "name": "TableCell",
+  "description": "Represents a cell in a OneNote table.",
   "isCollection": false,
   "collectionOf": null,
   "restPath": null,
@@ -21,7 +21,7 @@
     {
       "name": "id",
       "dataType": "string",
-      "description": "Gets the ID of the section group.",
+      "description": "Gets the ID of the cell.",
       "isReadOnly": true,
       "enumNameJs": null,
       "isCollection": false,
@@ -30,9 +30,31 @@
       "notes": null
     },
     {
-      "name": "name",
-      "dataType": "string",
-      "description": "Gets the name of the section group.",
+      "name": "parentTable",
+      "dataType": "Table",
+      "description": "Gets the parent table of the cell.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "isRelationship": true,
+      "isKey": null,
+      "notes": null
+    },
+    {
+      "name": "parentRow",
+      "dataType": "TableRow",
+      "description": "Gets the parent row of the cell.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "isRelationship": true,
+      "isKey": null,
+      "notes": null
+    },
+    {
+      "name": "rowIndex",
+      "dataType": "int",
+      "description": "Gets the index of the cell's row in the table.",
       "isReadOnly": true,
       "enumNameJs": null,
       "isCollection": false,
@@ -41,42 +63,9 @@
       "notes": null
     },
     {
-      "name": "notebook",
-      "dataType": "Notebook",
-      "description": "Gets the notebook that contains the section group.",
-      "isReadOnly": true,
-      "enumNameJs": null,
-      "isCollection": false,
-      "isRelationship": true,
-      "isKey": null,
-      "notes": null
-    },
-    {
-      "name": "parentSectionGroup",
-      "dataType": "SectionGroup",
-      "description": "Gets the section group that contains the section group. Throws ItemNotFound if the section group is a direct child of the notebook.",
-      "isReadOnly": true,
-      "enumNameJs": null,
-      "isCollection": false,
-      "isRelationship": true,
-      "isKey": null,
-      "notes": null
-    },
-    {
-      "name": "parentSectionGroupOrNull",
-      "dataType": "SectionGroup",
-      "description": "Gets the section group that contains the section group. Returns null if the section group is a direct child of the notebook.",
-      "isReadOnly": true,
-      "enumNameJs": null,
-      "isCollection": false,
-      "isRelationship": true,
-      "isKey": null,
-      "notes": null
-    },
-    {
-      "name": "clientUrl{",
-      "dataType": "string",
-      "description": "The client url of the section group. Read only",
+      "name": "cellIndex",
+      "dataType": "int",
+      "description": "Gets the index of the cell in its row.",
       "isReadOnly": true,
       "enumNameJs": null,
       "isCollection": false,
@@ -85,20 +74,9 @@
       "notes": null
     },
     {
-      "name": "sections",
-      "dataType": "SectionCollection",
-      "description": "The collection of sections in the section group. Read only",
-      "isReadOnly": true,
-      "enumNameJs": null,
-      "isCollection": true,
-      "isRelationship": true,
-      "isKey": null,
-      "notes": null
-    },
-    {
-      "name": "sectionGroups",
-      "dataType": "SectionGroupCollection",
-      "description": "The collection of section groups in the section group. Read only",
+      "name": "paragraphs",
+      "dataType": "ParagraphCollection",
+      "description": "Gets the collection of Paragraph objects in the TableCell.",
       "isReadOnly": true,
       "enumNameJs": null,
       "isCollection": true,
@@ -109,20 +87,20 @@
   ],
   "methods": [
     {
-      "name": "addSection",
-      "returnType": "Section",
-      "description": "Adds a new section to the end of the section group.",
-      "syntax": "sectionGroupObject.addSection(title);",
-      "signature": "addSection(title: String)",
-      "restfulName": "addSection",
+      "name": "appendHtml",
+      "returnType": "void",
+      "description": "Adds the specified HTML to the bottom of the TableCell.",
+      "syntax": "tableCellObject.appendHtml(html);",
+      "signature": "appendHtml(html: string)",
+      "restfulName": "appendHtml",
       "notes": null,
       "httpSuccessResponse": null,
       "parameters": [
         {
-          "name": "title",
-          "dataType": "String",
+          "name": "html",
+          "dataType": "string",
           "isCollection": false,
-          "description": "The name of the new section.",
+          "description": "The HTML string to append. See [supported HTML](../../docs/onenote/onenote-add-ins-page-content.md#supported-html) for the OneNote add-ins JavaScript API.",
           "isRequired": true,
           "enumNameJs": null,
           "notes": null

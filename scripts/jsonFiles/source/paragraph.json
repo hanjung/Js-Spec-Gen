@@ -72,6 +72,17 @@
       "isRelationship": true,
       "isKey": null,
       "notes": null
+    },
+    {
+      "name": "table",
+      "dataType": "Table",
+      "description": "Gets the Table object in the Paragraph. Returns null if ParagraphType is not Table.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "isRelationship": true,
+      "isKey": null,
+      "notes": null
     }
   ],
   "methods": [
@@ -98,15 +109,24 @@
       "parameters": null
     },
     {
-      "name": "insertAsSibling",
+      "name": "insertHtmlAsSibling",
       "returnType": "void",
       "description": "Inserts the specified HTML content",
-      "syntax": "paragraphObject.insertAsSibling(html, insertLocation);",
-      "signature": "insertAsSibling(html: string, insertLocation: string)",
-      "restfulName": "insertAsSibling",
+      "syntax": "paragraphObject.insertHtmlAsSibling(insertLocation, html);",
+      "signature": "insertHtmlAsSibling(insertLocation: string, html: string)",
+      "restfulName": "insertHtmlAsSibling",
       "notes": null,
       "httpSuccessResponse": null,
       "parameters": [
+        {
+          "name": "insertLocation",
+          "dataType": "string",
+          "isCollection": false,
+          "description": "The location of new contents relative to the current Paragraph.",
+          "isRequired": true,
+          "enumNameJs": "OneNote.InsertLocation",
+          "notes": null
+        },
         {
           "name": "html",
           "dataType": "string",
@@ -115,14 +135,131 @@
           "isRequired": true,
           "enumNameJs": null,
           "notes": null
-        },
+        }
+      ]
+    },
+    {
+      "name": "insertTableAsSibling",
+      "returnType": "Table",
+      "description": "Adds a table with the specified number of rows and columns before or after the current paragraph.",
+      "syntax": "paragraphObject.insertTableAsSibling(insertLocation, rowCount, columnCount, values);",
+      "signature": "insertTableAsSibling(insertLocation: string, rowCount: number, columnCount: number, values: string[][])",
+      "restfulName": "insertTableAsSibling",
+      "notes": null,
+      "httpSuccessResponse": null,
+      "parameters": [
         {
           "name": "insertLocation",
           "dataType": "string",
           "isCollection": false,
-          "description": "The location of new contents relative to the current Paragraph.",
+          "description": "The location of the table relative to the current Paragraph.",
           "isRequired": true,
           "enumNameJs": "OneNote.InsertLocation",
+          "notes": null
+        },
+        {
+          "name": "rowCount",
+          "dataType": "number",
+          "isCollection": false,
+          "description": "The number of rows in the table.",
+          "isRequired": true,
+          "enumNameJs": null,
+          "notes": null
+        },
+        {
+          "name": "columnCount",
+          "dataType": "number",
+          "isCollection": false,
+          "description": "The number of columns in the table.",
+          "isRequired": true,
+          "enumNameJs": null,
+          "notes": null
+        },
+        {
+          "name": "values",
+          "dataType": "string[][]",
+          "isCollection": true,
+          "description": "Optional 2D array. Cells are filled if the corresponding strings are specified in the array.",
+          "isRequired": false,
+          "enumNameJs": null,
+          "notes": null
+        }
+      ]
+    },
+    {
+      "name": "insertRichTextAsSibling",
+      "returnType": "RichText",
+      "description": "Inserts the paragraph text at the specifiec insert location.",
+      "syntax": "paragraphObject.insertRichTextAsSibling(insertLocation, paragraphText);",
+      "signature": "insertRichTextAsSibling(insertLocation: string, paragraphText: string)",
+      "restfulName": "insertRichTextAsSibling",
+      "notes": null,
+      "httpSuccessResponse": null,
+      "parameters": [
+        {
+          "name": "insertLocation",
+          "dataType": "string",
+          "isCollection": false,
+          "description": "The location of the table relative to the current Paragraph.",
+          "isRequired": true,
+          "enumNameJs": "OneNote.InsertLocation",
+          "notes": null
+        },
+        {
+          "name": "paragraphText",
+          "dataType": "string",
+          "isCollection": false,
+          "description": "HTML string to append.",
+          "isRequired": true,
+          "enumNameJs": null,
+          "notes": null
+        }
+      ]
+    },
+    {
+      "name": "insertImageAsSibling",
+      "returnType": "Image",
+      "description": "Inserts the image at the specified insert location..",
+      "syntax": "paragraphObject.insertImageAsSibling(insertLocation, base64EncodedImage, width, height);",
+      "signature": "insertImageAsSibling(insertLocation: string, base64EncodedImage: string, width: double, height: double)",
+      "restfulName": "insertImageAsSibling",
+      "notes": null,
+      "httpSuccessResponse": null,
+      "parameters": [
+        {
+          "name": "insertLocation",
+          "dataType": "string",
+          "isCollection": false,
+          "description": "The location of the table relative to the current Paragraph.",
+          "isRequired": true,
+          "enumNameJs": "OneNote.InsertLocation",
+          "notes": null
+        },
+        {
+          "name": "base64EncodedImage",
+          "dataType": "string",
+          "isCollection": false,
+          "description": "HTML string to append.",
+          "isRequired": true,
+          "enumNameJs": null,
+          "notes": null
+        },
+        {
+          "name": "width",
+          "dataType": "double",
+          "isCollection": false,
+          "description": "Optional. Width in the unit of Points. The default value is null and image width will be respected.",
+          "isRequired": true,
+          "enumNameJs": null,
+          "notes": null
+        },
+        {
+          "name": "height",
+          "dataType": "double",
+          "isCollection": false,
+          "description": "Optional. Height in the unit of Points. The default value is null and image height will be respected.",
+          "isRequired": true,
+          "enumNameJs": null,
           "notes": null
         }
       ]
