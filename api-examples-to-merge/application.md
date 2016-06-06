@@ -90,7 +90,7 @@ OneNote.run(function (context) {
 OneNote.run(function (context) {
         
     // Get the pages in the current section.
-    var pages = context.application.getActiveSection().getPages();
+    var pages = context.application.getActiveSection().pages;
             
     // Queue a command to load the pages. 
     // For best performance, request specific properties.           

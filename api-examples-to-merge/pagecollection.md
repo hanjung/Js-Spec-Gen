@@ -5,7 +5,7 @@
 OneNote.run(function (context) {
     
     // Get the pages in the current section.
-    var pages = context.application.getActiveSection().getPages();
+    var pages = context.application.getActiveSection().pages;
     
     // Queue a command to load the id and title for each page.            
     pages.load('id,title');
@@ -34,7 +34,7 @@ OneNote.run(function (context) {
 OneNote.run(function (context) {
 
     // Get all the pages in the current section.
-    var allPages = context.application.getActiveSection().getPages();
+    var allPages = context.application.getActiveSection().pages;
 
     // Queue a command to load the pages. 
     // For best performance, request specific properties.
