@@ -2,7 +2,7 @@
 ```js
 OneNote.run(function (context) {
         
-    // Get the current notebook.
+    // Get the active notebook.
     var notebook = context.application.getActiveNotebook();
             
     // Queue a command to load the notebook. 
@@ -31,7 +31,7 @@ OneNote.run(function (context) {
 ```js
 OneNote.run(function (context) {
 
-    // Get the current notebook.
+    // Get the active notebook.
     var notebook = context.application.getActiveNotebookOrNull();
 
     // Queue a command to load the notebook. 
@@ -57,14 +57,67 @@ OneNote.run(function (context) {
 });
 ```
 
+### getActiveOutline()
+```js
+OneNote.run(function (context) {
+
+    // get active outline.
+    var outline = context.application.getActiveOutline();
+
+    // Queue a command to load the id of the outline.         
+    outline.load('id');
+
+    // Run the queued commands, and return a promise to indicate task completion.
+    return context.sync()
+        .then(function () {
+
+            // Show some properties.
+            console.log("outline id: " + outline.id);
+        });
+})
+.catch(function(error) {
+    console.log("Error: " + error);
+    if (error instanceof OfficeExtension.Error) {
+        console.log("Debug info: " + JSON.stringify(error.debugInfo));
+    }
+});
+```
+
+### getActiveOutlineOrNull()
+```js
+OneNote.run(function (context) {
+
+    // get active outline.
+    var outline = context.application.getActiveOutlineOrNull();
+
+    // Queue a command to load the id of the outline.         
+    outline.load('id');
+
+    // Run the queued commands, and return a promise to indicate task completion.
+    return context.sync()
+        .then(function () {
+
+            if (!outline.isNull) {
+                console.log("outline id: " + outline.id);
+            }
+        });
+})
+.catch(function(error) {
+    console.log("Error: " + error);
+    if (error instanceof OfficeExtension.Error) {
+        console.log("Debug info: " + JSON.stringify(error.debugInfo));
+    }
+});
+```
+
 ### getActivePage()
 ```js
 OneNote.run(function (context) {
         
-    // Get the current notebook.
+    // Get the active page.
     var page = context.application.getActivePage();
             
-    // Queue a command to load the notebook. 
+    // Queue a command to load the page. 
     // For best performance, request specific properties.           
     page.load('id,title');
             
@@ -90,10 +143,10 @@ OneNote.run(function (context) {
 ```js
 OneNote.run(function (context) {
 
-    // Get the current notebook.
+    // Get the active page.
     var page = context.application.getActivePageOrNull();
 
-    // Queue a command to load the notebook. 
+    // Queue a command to load the page. 
     // For best performance, request specific properties.           
     page.load('id,title');
 
@@ -120,7 +173,7 @@ OneNote.run(function (context) {
 ```js
 OneNote.run(function (context) {
         
-    // Get the current section.
+    // Get the active section.
     var section = context.application.getActiveSection();
             
     // Queue a command to load the section. 
@@ -149,7 +202,7 @@ OneNote.run(function (context) {
 ```js
 OneNote.run(function (context) {
 
-    // Get the current section.
+    // Get the active section.
     var section = context.application.getActiveSectionOrNull();
 
     // Queue a command to load the section. 
