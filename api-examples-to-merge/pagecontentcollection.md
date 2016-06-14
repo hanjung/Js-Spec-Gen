@@ -18,13 +18,13 @@ OneNote.run(function (context) {
                 console.log("PageContent type: " + pageContent.type);
             });
         });
-    })                
-    .catch(function(error) {
-        console.log("Error: " + error);
-        if (error instanceof OfficeExtension.Error) {
-            console.log("Debug info: " + JSON.stringify(error.debugInfo));
-        }
-    });
+})                
+.catch(function(error) {
+	console.log("Error: " + error);
+	if (error instanceof OfficeExtension.Error) {
+		console.log("Debug info: " + JSON.stringify(error.debugInfo));
+	}
+});
 ```
 
 **traverse for outlines**
@@ -52,7 +52,7 @@ OneNote.run(function (context) {
 					 console.log("An outline was found with id : " + outline.id);
 			  });
 			  return Promise.resolve(outlines);
-	   })
+	   });
 });
 ```
 

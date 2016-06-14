@@ -1,9 +1,7 @@
 ### Getter
 
-### Getter
-
 **items**
-```
+```js
 OneNote.run(function (context) {
 
     // Get the notebooks that are open in the application instance and have the specified name.
@@ -26,13 +24,13 @@ OneNote.run(function (context) {
             
             return context.sync();
         });
-    })
-    .catch(function(error) {
-        console.log("Error: " + error);
-        if (error instanceof OfficeExtension.Error) {
-            console.log("Debug info: " + JSON.stringify(error.debugInfo));
-        }
-    });
+})
+.catch(function(error) {
+	console.log("Error: " + error);
+	if (error instanceof OfficeExtension.Error) {
+		console.log("Debug info: " + JSON.stringify(error.debugInfo));
+	}
+});
 ```
 
 ### getByName(name: string)
@@ -57,11 +55,11 @@ OneNote.run(function (context) {
             }
                 
         });
-    })
-    .catch(function(error) {
-        console.log("Error: " + error);
-        if (error instanceof OfficeExtension.Error) {
-            console.log("Debug info: " + JSON.stringify(error.debugInfo));
-        }
-    });
+})
+.catch(function(error) {
+	console.log("Error: " + error);
+	if (error instanceof OfficeExtension.Error) {
+		console.log("Debug info: " + JSON.stringify(error.debugInfo));
+	}
+});
 ```
