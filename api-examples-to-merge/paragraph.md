@@ -36,7 +36,44 @@ OneNote.run(function (context) {
 }); 
 ```
 
-### InsertHtmlAsSibling(insertPosition: string, html: string)
+### delete()
+```js
+OneNote.run(function (context) {
+
+    // Get the collection of pageContent items from the page.
+    var pageContents = context.application.getActivePage().contents;
+
+    // Get the first PageContent on the page
+    // Assuming its an outline, get the outline's paragraphs.
+    var pageContent = pageContents.getItemAt(0);
+	
+    var paragraphs = pageContent.outline.paragraphs;
+	
+	var firstParagraph = paragraphs.getItemAt(0);
+	
+    // Queue a command to load the id and type of the first paragraph
+    firstParagraph.load("id,type");
+
+    // Run the queued commands, and return a promise to indicate task completion.
+    return context.sync()
+        .then(function () {
+			
+            // Queue a command to delete the first paragraph                 
+            firstParagraph.delete();
+			
+			// Run the command to delete it
+			return context.sync();
+        });
+})
+.catch(function(error) {
+	console.log("Error: " + error);
+	if (error instanceof OfficeExtension.Error) {
+		console.log("Debug info: " + JSON.stringify(error.debugInfo));
+	}
+});
+```
+
+### insertHtmlAsSibling(insertPosition: string, html: string)
 ```js
 OneNote.run(function (context) {
 
@@ -142,43 +179,6 @@ OneNote.run(function (context) {
 		console.log("Debug info: " + JSON.stringify(error.debugInfo));
 	}
 }); 
-```
-
-### delete()
-```js
-OneNote.run(function (context) {
-
-    // Get the collection of pageContent items from the page.
-    var pageContents = context.application.getActivePage().contents;
-
-    // Get the first PageContent on the page
-    // Assuming its an outline, get the outline's paragraphs.
-    var pageContent = pageContents.getItemAt(0);
-	
-    var paragraphs = pageContent.outline.paragraphs;
-	
-	var firstParagraph = paragraphs.getItemAt(0);
-	
-    // Queue a command to load the id and type of the first paragraph
-    firstParagraph.load("id,type");
-
-    // Run the queued commands, and return a promise to indicate task completion.
-    return context.sync()
-        .then(function () {
-			
-            // Queue a command to delete the first paragraph                 
-            firstParagraph.delete();
-			
-			// Run the command to delete it
-			return context.sync();
-        });
-})
-.catch(function(error) {
-	console.log("Error: " + error);
-	if (error instanceof OfficeExtension.Error) {
-		console.log("Debug info: " + JSON.stringify(error.debugInfo));
-	}
-});
 ```
 
 ### select()
