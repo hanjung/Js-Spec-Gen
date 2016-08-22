@@ -77,33 +77,6 @@ OneNote.run(function (context) {
 ```
 
 
-#### Examples
-```js          
-OneNote.run(function (context) {
-
-	// Gets the active notebook.
-	var notebook = context.application.getActiveNotebook();
-
-	// Queue a command to add a new section group.
-	var sectionGroup = notebook.addSectionGroup("Sample section group");
-
-	// Queue a command to load the new section group.
-	sectionGroup.load();
-
-	// Run the queued commands, and return a promise to indicate task completion.
-	return context.sync()
-		.then(function() {
-			console.log("New section group name is " + sectionGroup.name);
-		});
-})
-.catch(function(error) {
-	console.log("Error: " + error);
-	if (error instanceof OfficeExtension.Error) {
-		console.log("Debug info: " + JSON.stringify(error.debugInfo));
-	}
-}); 
-```
-
 ### addSectionGroup(name: String)
 Adds a new section group to the end of the notebook.
 
