@@ -106,15 +106,36 @@
       ]
     },
     {
-      "name": "delete",
+      "name": "clear",
       "returnType": "void",
-      "description": "Deletes the entire row.",
-      "syntax": "tableRowObject.delete();",
-      "signature": "delete()",
-      "restfulName": "delete",
+      "description": "Clears the contents of the row.",
+      "syntax": "tableRowObject.clear();",
+      "signature": "clear()",
+      "restfulName": "clear",
       "notes": null,
       "httpSuccessResponse": null,
       "parameters": null
+    },
+    {
+      "name": "setShadingColor",
+      "returnType": "void",
+      "description": "Sets the shading color of all cells in the row.",
+      "syntax": "tableRowObject.setShadingColor(colorCode);",
+      "signature": "setShadingColor(colorCode: string)",
+      "restfulName": "setShadingColor",
+      "notes": null,
+      "httpSuccessResponse": null,
+      "parameters": [
+        {
+          "name": "colorCode",
+          "dataType": "string",
+          "isCollection": false,
+          "description": "The color code to set the cells to./param",
+          "isRequired": true,
+          "enumNameJs": null,
+          "notes": null
+        }
+      ]
     },
     {
       "name": "load",

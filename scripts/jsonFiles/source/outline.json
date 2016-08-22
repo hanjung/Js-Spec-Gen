@@ -75,17 +75,6 @@
       ]
     },
     {
-      "name": "select",
-      "returnType": "void",
-      "description": "Selects the Outline and bring it to the view.",
-      "syntax": "outlineObject.select();",
-      "signature": "select()",
-      "restfulName": "select",
-      "notes": null,
-      "httpSuccessResponse": null,
-      "parameters": null
-    },
-    {
       "name": "appendTable",
       "returnType": "Table",
       "description": "Adds a table with the specified number of rows and columns to the bottom of the outline.",

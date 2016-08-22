@@ -149,6 +149,48 @@
       ]
     },
     {
+      "name": "copyToNotebook",
+      "returnType": "Section",
+      "description": "Copies this section to specified notebook.",
+      "syntax": "sectionObject.copyToNotebook(destinationNotebook);",
+      "signature": "copyToNotebook(destinationNotebook: Notebook)",
+      "restfulName": "copyToNotebook",
+      "notes": null,
+      "httpSuccessResponse": null,
+      "parameters": [
+        {
+          "name": "destinationNotebook",
+          "dataType": "Notebook",
+          "isCollection": false,
+          "description": "The notebook to copy this section to.",
+          "isRequired": true,
+          "enumNameJs": null,
+          "notes": null
+        }
+      ]
+    },
+    {
+      "name": "copyToSectionGroup",
+      "returnType": "Section",
+      "description": "Copies this section to specified section group.",
+      "syntax": "sectionObject.copyToSectionGroup(destinationSectionGroup);",
+      "signature": "copyToSectionGroup(destinationSectionGroup: SectionGroup)",
+      "restfulName": "copyToSectionGroup",
+      "notes": null,
+      "httpSuccessResponse": null,
+      "parameters": [
+        {
+          "name": "destinationSectionGroup",
+          "dataType": "SectionGroup",
+          "isCollection": false,
+          "description": "The section group to copy this section to.",
+          "isRequired": true,
+          "enumNameJs": null,
+          "notes": null
+        }
+      ]
+    },
+    {
       "name": "load",
       "returnType": "void",
       "description": "Fills the proxy object created in JavaScript layer with property and object values specified in the parameter.",

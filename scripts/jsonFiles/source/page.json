@@ -74,6 +74,28 @@
       "notes": null
     },
     {
+      "name": "webUrl",
+      "dataType": "string",
+      "description": "The web url of the page. Read only",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "isRelationship": false,
+      "isKey": null,
+      "notes": null
+    },
+    {
+      "name": "inkAnalysisOrNull",
+      "dataType": "InkAnalysis",
+      "description": "Text interpretation for the ink on the page. Returns null if there is no ink analysis information. Read only.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "isRelationship": true,
+      "isKey": null,
+      "notes": null
+    },
+    {
       "name": "contents",
       "dataType": "PageContentCollection",
       "description": "The collection of PageContent objects on the page. Read only",
@@ -149,6 +171,27 @@
           "dataType": "string",
           "isCollection": false,
           "description": "The title of the new page.",
+          "isRequired": true,
+          "enumNameJs": null,
+          "notes": null
+        }
+      ]
+    },
+    {
+      "name": "copyToSection",
+      "returnType": "Page",
+      "description": "Copies this page to specified section.",
+      "syntax": "pageObject.copyToSection(destinationSection);",
+      "signature": "copyToSection(destinationSection: Section)",
+      "restfulName": "copyToSection",
+      "notes": null,
+      "httpSuccessResponse": null,
+      "parameters": [
+        {
+          "name": "destinationSection",
+          "dataType": "Section",
+          "isCollection": false,
+          "description": "The section to copy this page to.",
           "isRequired": true,
           "enumNameJs": null,
           "notes": null

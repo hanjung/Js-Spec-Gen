@@ -36,6 +36,42 @@ OneNote.run(function (context) {
 }); 
 ```
 
+**paragraphs**
+```js
+OneNote.run(function(context) {
+	var app = context.application;
+	
+	// Gets the active outline
+	var outline = app.getActiveOutline();
+	
+	// load nested paragraphs and their types.
+	outline.load("paragraphs/type");
+	
+	return context.sync().then(function () {
+		var paragraphs = outline.paragraphs.items;
+		
+		var promise;
+		// for each nested paragraphs, load tables only
+		for (var i = 0; i < paragraphs.length; i++) {
+			var paragraph = paragraphs[i];
+			if (paragraph.type == "Table") {
+				paragraph.load("table/id");
+				promise =  context.sync().then(function() {
+					console.log(paragraph.table.id);
+				});
+			}
+		}
+		return promise;
+	})
+})
+.catch(function(error) {
+	console.log("Error: " + error);
+	if (error instanceof OfficeExtension.Error) {
+		console.log("Debug info: " + JSON.stringify(error.debugInfo));
+	}
+});
+```
+
 ### delete()
 ```js
 OneNote.run(function (context) {

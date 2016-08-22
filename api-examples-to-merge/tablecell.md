@@ -104,7 +104,40 @@ OneNote.run(function(ctx) {
 			if (paragraph.type == "Table") {
 				var table = paragraph.table;
 				var cell = table.getCell(1 /*Row Index*/, 2 /*Column Index*/);
-				cell.appendHtml("Hello");
+				cell.appendHtml("<p>Hello</p>");
+			}
+		}
+		return ctx.sync();
+	})
+})
+.catch(function(error) {
+	console.log("Error: " + error);
+	if (error instanceof OfficeExtension.Error) {
+		console.log("Debug info: " + JSON.stringify(error.debugInfo));
+	}
+});
+
+### appendRichText(html: string)
+```js
+OneNote.run(function(ctx) {
+	var app = ctx.application;
+	var outline = app.getActiveOutline();
+	var appendedRichText = null;
+	
+	// Queue a command to load outline.paragraphs and their types.
+	ctx.load(outline, "paragraphs, paragraphs/type");
+	
+	// Run the queued commands, and return a promise to indicate task completion.
+	return ctx.sync().then(function () {
+		var paragraphs = outline.paragraphs;
+		
+		// for each table, get a table cell at row one and column two and add "Hello".
+		for (var i = 0; i < paragraphs.items.length; i++) {
+			var paragraph = paragraphs.items[i];
+			if (paragraph.type == "Table") {
+				var table = paragraph.table;
+				var cell = table.getCell(1 /*Row Index*/, 2 /*Column Index*/);
+				appendedRichText = cell.appendRichText("Hello");
 			}
 		}
 		return ctx.sync();

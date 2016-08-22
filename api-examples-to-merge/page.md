@@ -40,6 +40,57 @@ OneNote.run(function (context) {
 });
 ```
 
+**webUrl**
+```js
+OneNote.run(function (context) {
+
+	var app = context.application;
+	
+	// Gets the active page.
+	var page = app.getActivePage();
+	
+	// Queue a command to load the webUrl of the page.
+	page.load("webUrl");
+	
+	// Run the queued commands, and return a promise to indicate task completion.
+	return context.sync()
+		.then(function() {
+			console.log(page.webUrl);
+		});
+})
+.catch(function(error) {
+	console.log("Error: " + error);
+	if (error instanceof OfficeExtension.Error) {
+		console.log("Debug info: " + JSON.stringify(error.debugInfo));
+	}
+});
+```
+
+**inkAnalysisOrNull**
+```js
+OneNote.run(function (ctx) {		
+	var app = ctx.application;
+	
+	// Gets the active page.
+	var page = app.getActivePage();
+	
+	// Load ink words
+	page.load('inkAnalysisOrNull/paragraphs/lines/words');
+	
+	return ctx.sync()
+		.then(function() {
+			if (!page.inkAnalysisOrNull.isNull)
+				console.log(page.inkAnalysisOrNull.paragraphs.length);
+		});
+})
+.catch(function(error) {
+	console.log("Error: " + error);
+	if (error instanceof OfficeExtension.Error) {
+		console.log("Debug info: " + JSON.stringify(error.debugInfo));
+	}
+});
+```
+
 ### addOutline(left: double, top: double, html: String)
 ```js
 OneNote.run(function (context) {
@@ -104,3 +155,40 @@ OneNote.run(function (context) {
 });
 ```
 
+### copyToSection(destinationSection: Section)
+```js
+OneNote.run(function(ctx) {
+	var app = ctx.application;
+	
+	// Gets the active notebook.
+	var notebook = app.getActiveNotebook();
+	
+	// Gets the active page.
+	var page = app.getActivePage();
+	
+	// Queue a command to load sections under the notebook.
+	notebook.load('sections');
+	
+	var newPage;
+	
+	// Run the queued commands, and return a promise to indicate task completion.
+	return ctx.sync()
+		.then(function() {
+			var section = notebook.sections.items[0];
+			
+			// copy page to the section.
+			newPage = page.copyToSection(section);
+			newPage.load('id');
+			return ctx.sync();
+		})
+		.then(function() {
+			console.log(newPage.id);
+		});
+})
+.catch(function(error) {
+	console.log("Error: " + error);
+	if (error instanceof OfficeExtension.Error) {
+		console.log("Debug info: " + JSON.stringify(error.debugInfo));
+	}
+});
+```

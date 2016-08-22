@@ -30,17 +30,6 @@
       "notes": null
     },
     {
-      "name": "parentTable",
-      "dataType": "Table",
-      "description": "Gets the parent table of the cell.",
-      "isReadOnly": true,
-      "enumNameJs": null,
-      "isCollection": false,
-      "isRelationship": true,
-      "isKey": null,
-      "notes": null
-    },
-    {
       "name": "parentRow",
       "dataType": "TableRow",
       "description": "Gets the parent row of the cell.",
@@ -83,6 +72,17 @@
       "isRelationship": true,
       "isKey": null,
       "notes": null
+    },
+    {
+      "name": "shadingColor",
+      "dataType": "string",
+      "description": "Gets and sets the shading color of the cell",
+      "isReadOnly": false,
+      "enumNameJs": null,
+      "isCollection": false,
+      "isRelationship": false,
+      "isKey": null,
+      "notes": null
     }
   ],
   "methods": [
@@ -101,6 +101,116 @@
           "dataType": "string",
           "isCollection": false,
           "description": "The HTML string to append. See [supported HTML](../../docs/onenote/onenote-add-ins-page-content.md#supported-html) for the OneNote add-ins JavaScript API.",
+          "isRequired": true,
+          "enumNameJs": null,
+          "notes": null
+        }
+      ]
+    },
+    {
+      "name": "clear",
+      "returnType": "void",
+      "description": "Clears the contents of the cell.",
+      "syntax": "tableCellObject.clear();",
+      "signature": "clear()",
+      "restfulName": "clear",
+      "notes": null,
+      "httpSuccessResponse": null,
+      "parameters": null
+    },
+    {
+      "name": "appendTable",
+      "returnType": "Table",
+      "description": "Adds a table with the specified number of rows and columns to table cell.",
+      "syntax": "tableCellObject.appendTable(rowCount, columnCount, values);",
+      "signature": "appendTable(rowCount: number, columnCount: number, values: string[][])",
+      "restfulName": "appendTable",
+      "notes": null,
+      "httpSuccessResponse": null,
+      "parameters": [
+        {
+          "name": "rowCount",
+          "dataType": "number",
+          "isCollection": false,
+          "description": "Required. The number of rows in the table.",
+          "isRequired": true,
+          "enumNameJs": null,
+          "notes": null
+        },
+        {
+          "name": "columnCount",
+          "dataType": "number",
+          "isCollection": false,
+          "description": "Required. The number of columns in the table.",
+          "isRequired": true,
+          "enumNameJs": null,
+          "notes": null
+        },
+        {
+          "name": "values",
+          "dataType": "string[][]",
+          "isCollection": true,
+          "description": "Optional 2D array. Cells are filled if the corresponding strings are specified in the array.",
+          "isRequired": false,
+          "enumNameJs": null,
+          "notes": null
+        }
+      ]
+    },
+    {
+      "name": "appendRichText",
+      "returnType": "RichText",
+      "description": "Adds the specified text to table cell.",
+      "syntax": "tableCellObject.appendRichText(paragraphText);",
+      "signature": "appendRichText(paragraphText: string)",
+      "restfulName": "appendRichText",
+      "notes": null,
+      "httpSuccessResponse": null,
+      "parameters": [
+        {
+          "name": "paragraphText",
+          "dataType": "string",
+          "isCollection": false,
+          "description": "HTML string to append.",
+          "isRequired": true,
+          "enumNameJs": null,
+          "notes": null
+        }
+      ]
+    },
+    {
+      "name": "appendImage",
+      "returnType": "Image",
+      "description": "Adds the specified image to table cell.",
+      "syntax": "tableCellObject.appendImage(base64EncodedImage, width, height);",
+      "signature": "appendImage(base64EncodedImage: string, width: double, height: double)",
+      "restfulName": "appendImage",
+      "notes": null,
+      "httpSuccessResponse": null,
+      "parameters": [
+        {
+          "name": "base64EncodedImage",
+          "dataType": "string",
+          "isCollection": false,
+          "description": "HTML string to append.",
+          "isRequired": true,
+          "enumNameJs": null,
+          "notes": null
+        },
+        {
+          "name": "width",
+          "dataType": "double",
+          "isCollection": false,
+          "description": "Optional. Width in the unit of Points. The default value is null and image width will be respected.",
+          "isRequired": true,
+          "enumNameJs": null,
+          "notes": null
+        },
+        {
+          "name": "height",
+          "dataType": "double",
+          "isCollection": false,
+          "description": "Optional. Height in the unit of Points. The default value is null and image height will be respected.",
           "isRequired": true,
           "enumNameJs": null,
           "notes": null

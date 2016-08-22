@@ -41,6 +41,28 @@
       "notes": null
     },
     {
+      "name": "parentTableCell",
+      "dataType": "TableCell",
+      "description": "Gets the TableCell object that contains the Paragraph if one exists. If parent is not a TableCell, throws ItemNotFound.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "isRelationship": true,
+      "isKey": null,
+      "notes": null
+    },
+    {
+      "name": "parentTableCellOrNull",
+      "dataType": "TableCell",
+      "description": "Gets the TableCell object that contains the Paragraph if one exists. If parent is not a TableCell, returns null.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "isRelationship": true,
+      "isKey": null,
+      "notes": null
+    },
+    {
       "name": "type",
       "dataType": "string",
       "description": "Gets the type of the Paragraph object.",
@@ -54,7 +76,7 @@
     {
       "name": "richText",
       "dataType": "RichText",
-      "description": "Gets the RichText object in the Paragraph. Returns null if ParagraphType is not RichText. Read-only",
+      "description": "Gets the RichText object in the Paragraph. Throws an exception if ParagraphType is not RichText. Read-only",
       "isReadOnly": true,
       "enumNameJs": null,
       "isCollection": false,
@@ -65,7 +87,7 @@
     {
       "name": "image",
       "dataType": "Image",
-      "description": "Gets the Image object in the Paragraph. Returns null if ParagraphType is not Image.",
+      "description": "Gets the Image object in the Paragraph. Throws an exception if ParagraphType is not Image.",
       "isReadOnly": true,
       "enumNameJs": null,
       "isCollection": false,
@@ -76,10 +98,54 @@
     {
       "name": "table",
       "dataType": "Table",
-      "description": "Gets the Table object in the Paragraph. Returns null if ParagraphType is not Table.",
+      "description": "Gets the Table object in the Paragraph. Throws an exception if ParagraphType is not Table.",
       "isReadOnly": true,
       "enumNameJs": null,
       "isCollection": false,
+      "isRelationship": true,
+      "isKey": null,
+      "notes": null
+    },
+    {
+      "name": "parentParagraph",
+      "dataType": "Paragraph",
+      "description": "Gets the parent paragraph object. Throws if a parent paragraph does not exist.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "isRelationship": true,
+      "isKey": null,
+      "notes": null
+    },
+    {
+      "name": "parentParagraphOrNull",
+      "dataType": "Paragraph",
+      "description": "Gets the parent paragraph object. Returns null if a parent paragraph does not exist.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "isRelationship": true,
+      "isKey": null,
+      "notes": null
+    },
+    {
+      "name": "paragraphs",
+      "dataType": "ParagraphCollection",
+      "description": "The collection of paragraphs under this paragraph. Read only",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": true,
+      "isRelationship": true,
+      "isKey": null,
+      "notes": null
+    },
+    {
+      "name": "inkWords",
+      "dataType": "InkWordCollection",
+      "description": "Gets the Ink collection in the Paragraph. Throws an exception if ParagraphType is not Ink.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": true,
       "isRelationship": true,
       "isKey": null,
       "notes": null
@@ -93,17 +159,6 @@
       "syntax": "paragraphObject.delete();",
       "signature": "delete()",
       "restfulName": "delete",
-      "notes": null,
-      "httpSuccessResponse": null,
-      "parameters": null
-    },
-    {
-      "name": "select",
-      "returnType": "void",
-      "description": "Selects the paragraph",
-      "syntax": "paragraphObject.select();",
-      "signature": "select()",
-      "restfulName": "select",
       "notes": null,
       "httpSuccessResponse": null,
       "parameters": null

@@ -17,7 +17,19 @@
     "title": "Office JavaScript Add-in API",
     "description": "Office JavaScript Add-in API"
   },
-  "properties": null,
+  "properties": [
+    {
+      "name": "notebooks",
+      "dataType": "NotebookCollection",
+      "description": "Gets the collection of notebooks that are open in the OneNote application instance. In OneNote Online, only one notebook at a time is open in the application instance.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": true,
+      "isRelationship": true,
+      "isKey": null,
+      "notes": null
+    }
+  ],
   "methods": [
     {
       "name": "getActiveNotebook",
@@ -145,6 +157,26 @@
           "description": "The client url of the page to open.",
           "isRequired": true,
           "enumNameJs": null,
+          "notes": null
+        }
+      ]
+    },
+    {
+      "name": "load",
+      "returnType": "void",
+      "description": "Fills the proxy object created in JavaScript layer with property and object values specified in the parameter.",
+      "syntax": "object.load(param);",
+      "signature": "load(param: object)",
+      "restfulName": null,
+      "notes": null,
+      "parameters": [
+        {
+          "name": "param",
+          "dataType": "object",
+          "description": "Accepts parameter and relationship names as delimited string or an array. Or, provide [loadOption](loadoption.md) object.",
+          "isRequired": false,
+          "enumNameJs": null,
+          "possibleValues": null,
           "notes": null
         }
       ]

@@ -162,3 +162,67 @@ OneNote.run(function (context) {
 	}
 });
 ```
+
+### copyToNotebook(destinationNotebook: Notebook)
+```js
+OneNote.run(function (context) {
+	var app = context.application;
+	
+	// Gets the active Notebook.
+	var notebook = app.getActiveNotebook();
+	
+	// Gets the active Section.
+	var section = app.getActiveSection();
+	
+	var newSection;
+	
+	return context.sync()
+		.then(function() {
+			newSection = section.copyToNotebook(notebook);
+			newSection.load('id');
+			return context.sync();
+		})
+		.then(function() {
+			console.log(newSection.id);
+		});
+})
+.catch(function (error) {
+	console.log("Error: " + error);
+	if (error instanceof OfficeExtension.Error) {
+		console.log("Debug info: " + JSON.stringify(error.debugInfo));
+	}
+});
+```
+
+### copyToSectionGroup(destinationSectionGroup: SectionGroup)
+```js
+OneNote.run(function (ctx) {
+	var app = ctx.application;
+	
+	// Gets the active Notebook.
+	var notebook = app.getActiveNotebook();
+	
+	// Gets the active Section.
+	var section = app.getActiveSection();
+	
+	var newSection;
+	
+	return ctx.sync()
+		.then(function() {
+			var firstSectionGroup = notebook.sectionGroups.items[0];
+			newSection = section.copyToSectionGroup(firstSectionGroup);
+			newSection.load('id');
+			return ctx.sync();
+		})
+		.then(function() {
+			console.log(newSection.id);
+		});
+})
+.catch(function (error) {
+	console.log("Error: " + error);
+	if (error instanceof OfficeExtension.Error) {
+		console.log("Debug info: " + JSON.stringify(error.debugInfo));
+	}
+});
+```
+

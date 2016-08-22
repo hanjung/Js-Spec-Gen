@@ -72,6 +72,17 @@
       "isRelationship": false,
       "isKey": null,
       "notes": null
+    },
+    {
+      "name": "borderVisible",
+      "dataType": "bool",
+      "description": "Gets or sets whether the borders are visible or not. True if they are visible, false if they are hidden.",
+      "isReadOnly": false,
+      "enumNameJs": null,
+      "isCollection": false,
+      "isRelationship": false,
+      "isKey": null,
+      "notes": null
     }
   ],
   "methods": [
@@ -208,86 +219,36 @@
       ]
     },
     {
-      "name": "deleteRows",
+      "name": "clear",
       "returnType": "void",
-      "description": "Deletes a contiguous run of rows.",
-      "syntax": "tableObject.deleteRows(rowIndex, rowCount);",
-      "signature": "deleteRows(rowIndex: number, rowCount: number)",
-      "restfulName": "deleteRows",
-      "notes": null,
-      "httpSuccessResponse": null,
-      "parameters": [
-        {
-          "name": "rowIndex",
-          "dataType": "number",
-          "isCollection": false,
-          "description": "The first row to delete.",
-          "isRequired": true,
-          "enumNameJs": null,
-          "notes": null
-        },
-        {
-          "name": "rowCount",
-          "dataType": "number",
-          "isCollection": false,
-          "description": "Optional. The number of rows to delete. Default 1.",
-          "isRequired": false,
-          "enumNameJs": null,
-          "notes": null
-        }
-      ]
-    },
-    {
-      "name": "deleteColumns",
-      "returnType": "void",
-      "description": "Deletes a contiguous run of columns.",
-      "syntax": "tableObject.deleteColumns(columnIndex, columnCount);",
-      "signature": "deleteColumns(columnIndex: number, columnCount: number)",
-      "restfulName": "deleteColumns",
-      "notes": null,
-      "httpSuccessResponse": null,
-      "parameters": [
-        {
-          "name": "columnIndex",
-          "dataType": "number",
-          "isCollection": false,
-          "description": "The first column to delete.",
-          "isRequired": true,
-          "enumNameJs": null,
-          "notes": null
-        },
-        {
-          "name": "columnCount",
-          "dataType": "number",
-          "isCollection": false,
-          "description": "Optional. The number of columns to delete. Default 1.",
-          "isRequired": false,
-          "enumNameJs": null,
-          "notes": null
-        }
-      ]
-    },
-    {
-      "name": "hideBorder",
-      "returnType": "void",
-      "description": "Hides the table's border",
-      "syntax": "tableObject.hideBorder();",
-      "signature": "hideBorder()",
-      "restfulName": "hideBorder",
+      "description": "Clears the contents of the table.",
+      "syntax": "tableObject.clear();",
+      "signature": "clear()",
+      "restfulName": "clear",
       "notes": null,
       "httpSuccessResponse": null,
       "parameters": null
     },
     {
-      "name": "showBorder",
+      "name": "setShadingColor",
       "returnType": "void",
-      "description": "Make's the table's border visible",
-      "syntax": "tableObject.showBorder();",
-      "signature": "showBorder()",
-      "restfulName": "showBorder",
+      "description": "Sets the shading color of all cells in the table.",
+      "syntax": "tableObject.setShadingColor(colorCode);",
+      "signature": "setShadingColor(colorCode: string)",
+      "restfulName": "setShadingColor",
       "notes": null,
       "httpSuccessResponse": null,
-      "parameters": null
+      "parameters": [
+        {
+          "name": "colorCode",
+          "dataType": "string",
+          "isCollection": false,
+          "description": "The color code to set the cells to./param",
+          "isRequired": true,
+          "enumNameJs": null,
+          "notes": null
+        }
+      ]
     },
     {
       "name": "load",

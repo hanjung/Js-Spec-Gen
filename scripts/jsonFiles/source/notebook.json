@@ -97,6 +97,27 @@
       ]
     },
     {
+      "name": "addSectionGroup",
+      "returnType": "SectionGroup",
+      "description": "Adds a new section group to the end of the notebook.",
+      "syntax": "notebookObject.addSectionGroup(name);",
+      "signature": "addSectionGroup(name: String)",
+      "restfulName": "addSectionGroup",
+      "notes": null,
+      "httpSuccessResponse": null,
+      "parameters": [
+        {
+          "name": "name",
+          "dataType": "String",
+          "isCollection": false,
+          "description": "The name of the new section.",
+          "isRequired": true,
+          "enumNameJs": null,
+          "notes": null
+        }
+      ]
+    },
+    {
       "name": "load",
       "returnType": "void",
       "description": "Fills the proxy object created in JavaScript layer with property and object values specified in the parameter.",

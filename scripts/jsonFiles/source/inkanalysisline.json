@@ -1,0 +1,77 @@
+{
+  "name": "InkAnalysisLine",
+  "description": "Represents ink analysis data for an identified text line formed by ink strokes.",
+  "isCollection": false,
+  "collectionOf": null,
+  "restPath": null,
+  "info": {
+    "version": "1.1",
+    "addedIn": "1.1",
+    "addinTypes": [
+      "OneNote"
+    ],
+    "nameSpace": "OneNote",
+    "addinHosts": [
+      "Task pane"
+    ],
+    "title": "Office JavaScript Add-in API",
+    "description": "Office JavaScript Add-in API"
+  },
+  "properties": [
+    {
+      "name": "id",
+      "dataType": "string",
+      "description": "Gets the ID of the InkAnalysisLine object.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "isRelationship": false,
+      "isKey": null,
+      "notes": null
+    },
+    {
+      "name": "words",
+      "dataType": "InkAnalysisWordCollection",
+      "description": "Gets the ink analysis words in this ink analysis line.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": true,
+      "isRelationship": true,
+      "isKey": null,
+      "notes": null
+    },
+    {
+      "name": "paragraph",
+      "dataType": "InkAnalysisParagraph",
+      "description": "Reference to the parent InkAnalysisParagraph.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "isRelationship": true,
+      "isKey": null,
+      "notes": null
+    }
+  ],
+  "methods": [
+    {
+      "name": "load",
+      "returnType": "void",
+      "description": "Fills the proxy object created in JavaScript layer with property and object values specified in the parameter.",
+      "syntax": "object.load(param);",
+      "signature": "load(param: object)",
+      "restfulName": null,
+      "notes": null,
+      "parameters": [
+        {
+          "name": "param",
+          "dataType": "object",
+          "description": "Accepts parameter and relationship names as delimited string or an array. Or, provide [loadOption](loadoption.md) object.",
+          "isRequired": false,
+          "enumNameJs": null,
+          "possibleValues": null,
+          "notes": null
+        }
+      ]
+    }
+  ]
+}

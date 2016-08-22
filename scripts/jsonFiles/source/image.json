@@ -32,7 +32,7 @@
     {
       "name": "paragraph",
       "dataType": "Paragraph",
-      "description": "Gets the Paragraph object that contains the Image. Returns null if the Image is not a direct child of a Paragraph.",
+      "description": "Gets the Paragraph object that contains the Image. Throws if the Image is not a direct child of a Paragraph.",
       "isReadOnly": true,
       "enumNameJs": null,
       "isCollection": false,
@@ -43,7 +43,7 @@
     {
       "name": "pageContent",
       "dataType": "PageContent",
-      "description": "Gets the PageContent object that contains the Image. Returns null if the Image is not a direct child of a PageContent. This object defines the position of the Image on the page.",
+      "description": "Gets the PageContent object that contains the Image. Throws if the Image is not a direct child of a PageContent. This object defines the position of the Image on the page.",
       "isReadOnly": true,
       "enumNameJs": null,
       "isCollection": false,
@@ -81,6 +81,17 @@
       "enumNameJs": null,
       "isCollection": false,
       "isRelationship": false,
+      "isKey": null,
+      "notes": null
+    },
+    {
+      "name": "ocrData",
+      "dataType": "ImageOcrData",
+      "description": "Gets the data obtained by OCR (Optical Character Recognition) of this Image, such as OCR text and language.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "isRelationship": true,
       "isKey": null,
       "notes": null
     },

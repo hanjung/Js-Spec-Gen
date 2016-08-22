@@ -1,0 +1,108 @@
+{
+  "name": "InkWordCollection",
+  "description": "Represents a collection of InkWord objects.",
+  "isCollection": true,
+  "collectionOf": "InkWord",
+  "restPath": null,
+  "info": {
+    "version": "1.1",
+    "addedIn": "1.1",
+    "addinTypes": [
+      "OneNote"
+    ],
+    "nameSpace": "OneNote",
+    "addinHosts": [
+      "Task pane"
+    ],
+    "title": "Office JavaScript Add-in API",
+    "description": "Office JavaScript Add-in API"
+  },
+  "properties": [
+    {
+      "name": "count",
+      "dataType": "int",
+      "description": "Returns the number of InkWords in the page.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": false,
+      "isRelationship": false,
+      "isKey": null,
+      "notes": null
+    },
+    {
+      "name": "items",
+      "dataType": "InkWord[]",
+      "description": "A collection of inkWord objects.",
+      "isReadOnly": true,
+      "enumNameJs": null,
+      "isCollection": true,
+      "isRelationship": false,
+      "isKey": null,
+      "notes": null
+    }
+  ],
+  "methods": [
+    {
+      "name": "getItem",
+      "returnType": "InkWord",
+      "description": "Gets a InkWord object by ID or by its index in the collection. Read-only.",
+      "syntax": "inkWordCollectionObject.getItem(index);",
+      "signature": "getItem(index: number or string)",
+      "restfulName": "Item",
+      "notes": null,
+      "httpSuccessResponse": null,
+      "parameters": [
+        {
+          "name": "index",
+          "dataType": "number or string",
+          "isCollection": false,
+          "description": "The ID of the InkWord object, or the index location of the InkWord object in the collection.",
+          "isRequired": true,
+          "enumNameJs": null,
+          "notes": null
+        }
+      ]
+    },
+    {
+      "name": "getItemAt",
+      "returnType": "InkWord",
+      "description": "Gets a InkWord on its position in the collection.",
+      "syntax": "inkWordCollectionObject.getItemAt(index);",
+      "signature": "getItemAt(index: number)",
+      "restfulName": "ItemAt",
+      "notes": null,
+      "httpSuccessResponse": null,
+      "parameters": [
+        {
+          "name": "index",
+          "dataType": "number",
+          "isCollection": false,
+          "description": "Index value of the object to be retrieved. Zero-indexed.",
+          "isRequired": true,
+          "enumNameJs": null,
+          "notes": null
+        }
+      ]
+    },
+    {
+      "name": "load",
+      "returnType": "void",
+      "description": "Fills the proxy object created in JavaScript layer with property and object values specified in the parameter.",
+      "syntax": "object.load(param);",
+      "signature": "load(param: object)",
+      "restfulName": null,
+      "notes": null,
+      "parameters": [
+        {
+          "name": "param",
+          "dataType": "object",
+          "description": "Accepts parameter and relationship names as delimited string or an array. Or, provide [loadOption](loadoption.md) object.",
+          "isRequired": false,
+          "enumNameJs": null,
+          "possibleValues": null,
+          "notes": null
+        }
+      ]
+    }
+  ]
+}

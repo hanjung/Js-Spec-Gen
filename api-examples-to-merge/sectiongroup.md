@@ -153,3 +153,42 @@ OneNote.run(function (context) {
 	}
 });
 ```
+
+### addSectionGroup(name: String)
+```js          
+OneNote.run(function (context) {
+	var sectionGroup;
+	var nestedSectionGroup;
+
+	// Gets the active notebook.
+	var notebook = context.application.getActiveNotebook();
+
+	// Queue a command to add a new section group.
+	var sectionGroups = notebook.sectionGroups;
+
+	// Queue a command to load the new section group.
+	sectionGroups.load();
+
+	// Run the queued commands, and return a promise to indicate task completion.
+	return context.sync()
+		.then(function(){
+			sectionGroup = sectionGroups.items[0];
+			sectionGroup.load();
+			return context.sync();
+		})
+		.then(function(){
+			nestedSectionGroup = sectionGroup.addSectionGroup("Sample nested section group");
+			nestedSectionGroup.load();
+			return context.sync();
+		})
+		.then(function() {
+			console.log("New nested section group name is " + nestedSectionGroup.name);
+		});
+})
+.catch(function(error) {
+	console.log("Error: " + error);
+	if (error instanceof OfficeExtension.Error) {
+		console.log("Debug info: " + JSON.stringify(error.debugInfo));
+	}
+}); 
+```
